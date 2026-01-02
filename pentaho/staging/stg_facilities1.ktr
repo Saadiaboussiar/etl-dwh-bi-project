@@ -437,14 +437,14 @@
   <notepads>
   </notepads>
   <connection>
-    <name>mysql_stg</name>
+    <name>ETL Project</name>
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
     <database>logistics_dw</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 4cd1edd9ad0bd2bf8bbf3dab40df81bcdf</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -467,10 +467,6 @@
       </attribute>
       <attribute>
         <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
@@ -565,8 +561,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
-      <yloc>96</yloc>
+      <xloc>464</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -773,8 +769,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>112</yloc>
+      <xloc>160</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -815,8 +811,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>544</xloc>
-      <yloc>64</yloc>
+      <xloc>592</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -920,8 +916,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>256</xloc>
-      <yloc>64</yloc>
+      <xloc>304</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -936,7 +932,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>mysql_stg</connection>
+    <connection>ETL Project</connection>
     <schema>logistics_dw</schema>
     <table>stg_facilities</table>
     <commit>1000</commit>
@@ -1000,8 +996,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>864</xloc>
-      <yloc>64</yloc>
+      <xloc>912</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1067,7 +1063,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
+      <xloc>768</xloc>
       <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1083,7 +1079,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>/Users/maounouissal/Documents/projet data mining/archive/facilities.csv</filename>
+    <filename>E:\etl-dwh-bi-project\data\raw\facilities.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -1102,9 +1098,9 @@
         <name>facility_id</name>
         <type>String</type>
         <format/>
-        <currency>MAD</currency>
-        <decimal>,</decimal>
-        <group> </group>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
         <length>8</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1113,9 +1109,9 @@
         <name>facility_name</name>
         <type>String</type>
         <format/>
-        <currency>MAD</currency>
-        <decimal>,</decimal>
-        <group> </group>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
         <length>32</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1124,9 +1120,9 @@
         <name>facility_type</name>
         <type>String</type>
         <format/>
-        <currency>MAD</currency>
-        <decimal>,</decimal>
-        <group> </group>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
         <length>19</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1135,9 +1131,9 @@
         <name>city</name>
         <type>String</type>
         <format/>
-        <currency>MAD</currency>
-        <decimal>,</decimal>
-        <group> </group>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
         <length>14</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1146,9 +1142,9 @@
         <name>state</name>
         <type>String</type>
         <format/>
-        <currency>MAD</currency>
-        <decimal>,</decimal>
-        <group> </group>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
         <length>2</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1156,32 +1152,32 @@
       <field>
         <name>latitude</name>
         <type>BigNumber</type>
-        <format>#.#####</format>
-        <currency>MAD</currency>
+        <format>#.####</format>
+        <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
+        <length>7</length>
+        <precision>4</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
         <name>longitude</name>
         <type>BigNumber</type>
-        <format>#.#####</format>
-        <currency>MAD</currency>
+        <format>#.####</format>
+        <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
+        <length>9</length>
+        <precision>4</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
         <name>dock_doors</name>
         <type>Integer</type>
         <format>#</format>
-        <currency>MAD</currency>
-        <decimal>,</decimal>
-        <group> </group>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
         <length>15</length>
         <precision>0</precision>
         <trim_type>none</trim_type>
@@ -1190,9 +1186,9 @@
         <name>operating_hours</name>
         <type>String</type>
         <format/>
-        <currency>MAD</currency>
-        <decimal>,</decimal>
-        <group> </group>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
         <length>8</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1207,8 +1203,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>0</xloc>
-      <yloc>64</yloc>
+      <xloc>32</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
