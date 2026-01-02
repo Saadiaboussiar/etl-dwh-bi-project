@@ -937,7 +937,7 @@
     </partitioning>
     <connection>ETL Project</connection>
     <schema/>
-    <table>delivery_events_stg</table>
+    <table>stg_delivery_events</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -1050,7 +1050,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>E:\project dataset\delivery_events.csv</filename>
+    <filename>E:\etl-dwh-bi-project\data\raw\delivery_events.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>

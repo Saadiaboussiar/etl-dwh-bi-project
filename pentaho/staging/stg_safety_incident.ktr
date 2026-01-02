@@ -920,7 +920,7 @@
     </partitioning>
     <connection>ETL Project</connection>
     <schema/>
-    <table>safety_incident_stg</table>
+    <table>stg_safety_incident</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -947,6 +947,97 @@
     </remotesteps>
     <GUI>
       <xloc>992</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Unique rows</name>
+    <type>Unique</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
+    <fields>
+      <field>
+        <name>at_fault_flag</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>cargo_damage_cost</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>claim_amount</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>description</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>driver_id</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>incident_date</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>incident_id</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>incident_type</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>injury_flag</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>location_city</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>location_state</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>preventable_flag</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>trip_id</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>truck_id</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>vehicle_damage_cost</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>880</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1154,97 +1245,6 @@
     <GUI>
       <xloc>176</xloc>
       <yloc>160</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Unique rows</name>
-    <type>Unique</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <count_rows>N</count_rows>
-    <count_field/>
-    <reject_duplicate_row>N</reject_duplicate_row>
-    <error_description/>
-    <fields>
-      <field>
-        <name>at_fault_flag</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>cargo_damage_cost</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>claim_amount</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>description</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>driver_id</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>incident_date</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>incident_id</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>incident_type</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>injury_flag</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>location_city</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>location_state</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>preventable_flag</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>trip_id</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>truck_id</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>vehicle_damage_cost</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>880</xloc>
-      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
