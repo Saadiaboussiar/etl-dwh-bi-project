@@ -430,20 +430,20 @@
     <created_date>2025/12/31 18:41:16.556</created_date>
     <modified_user>-</modified_user>
     <modified_date>2025/12/31 18:41:16.556</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
   <connection>
-    <name>yassmine</name>
-    <server>127.0.0.1</server>
+    <name>ETL Project</name>
+    <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
     <database>logistics_dw</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce108ec2ff8a</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -541,7 +541,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>C:\Users\user\Downloads\fichiers_csv\customers.csv</filename>
+    <filename>E:\etl-dwh-bi-project\data\raw\customers.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -560,7 +560,7 @@
         <name>customer_id</name>
         <type>String</type>
         <format/>
-        <currency>USD</currency>
+        <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
         <length>9</length>
@@ -571,7 +571,7 @@
         <name>customer_name</name>
         <type>String</type>
         <format/>
-        <currency>USD</currency>
+        <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
         <length>25</length>
@@ -582,7 +582,7 @@
         <name>customer_type</name>
         <type>String</type>
         <format/>
-        <currency>USD</currency>
+        <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
         <length>9</length>
@@ -593,7 +593,7 @@
         <name>credit_terms_days</name>
         <type>Integer</type>
         <format>#</format>
-        <currency>USD</currency>
+        <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
         <length>15</length>
@@ -604,7 +604,7 @@
         <name>primary_freight_type</name>
         <type>String</type>
         <format/>
-        <currency>USD</currency>
+        <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
         <length>14</length>
@@ -615,7 +615,7 @@
         <name>account_status</name>
         <type>String</type>
         <format/>
-        <currency>USD</currency>
+        <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
         <length>8</length>
@@ -626,7 +626,7 @@
         <name>contract_start_date</name>
         <type>Date</type>
         <format>yyyy-MM-dd</format>
-        <currency>USD</currency>
+        <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
         <length>-1</length>
@@ -637,7 +637,7 @@
         <name>annual_revenue_potential</name>
         <type>Integer</type>
         <format>#</format>
-        <currency>USD</currency>
+        <currency>$</currency>
         <decimal>.</decimal>
         <group>,</group>
         <length>15</length>
@@ -660,6 +660,101 @@
     </GUI>
   </step>
   <step>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to/>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <conditions>
+              <condition>
+                <negated>N</negated>
+                <leftvalue>customer_id</leftvalue>
+                <function>IS NOT NULL</function>
+                <rightvalue/>
+              </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>AND</operator>
+                <conditions>
+                  <condition>
+                    <negated>N</negated>
+                    <leftvalue>customer_name</leftvalue>
+                    <function>IS NOT NULL</function>
+                    <rightvalue/>
+                  </condition>
+                  <condition>
+                    <negated>N</negated>
+                    <operator>AND</operator>
+                    <conditions>
+                      <condition>
+                        <negated>N</negated>
+                        <leftvalue>credit_terms_days</leftvalue>
+                        <function>&gt;</function>
+                        <rightvalue/>
+                        <value>
+                          <name>constant</name>
+                          <type>Integer</type>
+                          <text>0</text>
+                          <length>-1</length>
+                          <precision>0</precision>
+                          <isnull>N</isnull>
+                          <mask>####0;-####0</mask>
+                        </value>
+                      </condition>
+                      <condition>
+                        <negated>N</negated>
+                        <operator>AND</operator>
+                        <leftvalue>annual_revenue_potential</leftvalue>
+                        <function>&gt;=</function>
+                        <rightvalue/>
+                        <value>
+                          <name>constant</name>
+                          <type>Integer</type>
+                          <text>0</text>
+                          <length>-1</length>
+                          <precision>0</precision>
+                          <isnull>N</isnull>
+                          <mask>####0;-####0</mask>
+                        </value>
+                      </condition>
+                    </conditions>
+                  </condition>
+                </conditions>
+              </condition>
+            </conditions>
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>800</xloc>
+      <yloc>100</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Select values</name>
     <type>SelectValues</type>
     <description/>
@@ -673,35 +768,27 @@
     <fields>
       <field>
         <name>customer_id</name>
-        <rename/>
       </field>
       <field>
         <name>customer_name</name>
-        <rename/>
       </field>
       <field>
         <name>customer_type</name>
-        <rename/>
       </field>
       <field>
         <name>credit_terms_days</name>
-        <rename/>
       </field>
       <field>
         <name>primary_freight_type</name>
-        <rename/>
       </field>
       <field>
         <name>account_status</name>
-        <rename/>
       </field>
       <field>
         <name>contract_start_date</name>
-        <rename/>
       </field>
       <field>
         <name>annual_revenue_potential</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -856,6 +943,48 @@
     </GUI>
   </step>
   <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>customer_id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1000</xloc>
+      <yloc>100</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>String operations</name>
     <type>StringOperations</type>
     <description/>
@@ -948,143 +1077,6 @@
     </GUI>
   </step>
   <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to/>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <operator>AND</operator>
-            <conditions>
-              <condition>
-                <negated>N</negated>
-                <leftvalue>customer_id</leftvalue>
-                <function>IS NOT NULL</function>
-                <rightvalue/>
-              </condition>
-              <condition>
-                <negated>N</negated>
-                <operator>AND</operator>
-                <conditions>
-                  <condition>
-                    <negated>N</negated>
-                    <leftvalue>customer_name</leftvalue>
-                    <function>IS NOT NULL</function>
-                    <rightvalue/>
-                  </condition>
-                  <condition>
-                    <negated>N</negated>
-                    <operator>AND</operator>
-                    <conditions>
-                      <condition>
-                        <negated>N</negated>
-                        <leftvalue>credit_terms_days</leftvalue>
-                        <function>&gt;</function>
-                        <rightvalue/>
-                        <value>
-                          <name>constant</name>
-                          <type>Integer</type>
-                          <text>0</text>
-                          <length>-1</length>
-                          <precision>0</precision>
-                          <isnull>N</isnull>
-                          <mask>####0;-####0</mask>
-                        </value>
-                      </condition>
-                      <condition>
-                        <negated>N</negated>
-                        <operator>AND</operator>
-                        <leftvalue>annual_revenue_potential</leftvalue>
-                        <function>&gt;=</function>
-                        <rightvalue/>
-                        <value>
-                          <name>constant</name>
-                          <type>Integer</type>
-                          <text>0</text>
-                          <length>-1</length>
-                          <precision>0</precision>
-                          <isnull>N</isnull>
-                          <mask>####0;-####0</mask>
-                        </value>
-                      </condition>
-                    </conditions>
-                  </condition>
-                </conditions>
-              </condition>
-            </conditions>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>800</xloc>
-      <yloc>100</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>customer_id</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1000</xloc>
-      <yloc>100</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Unique rows</name>
     <type>Unique</type>
     <description/>
@@ -1130,7 +1122,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>yassmine</connection>
+    <connection>ETL Project</connection>
     <schema/>
     <table>STG_CUSTOMERS</table>
     <commit>1000</commit>
