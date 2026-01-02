@@ -469,6 +469,10 @@
         <attribute>N</attribute>
       </attribute>
       <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
         <code>PORT_NUMBER</code>
         <attribute>3306</attribute>
       </attribute>
@@ -526,6 +530,11 @@
     </hop>
     <hop>
       <from>Filter missing driver</from>
+      <to>Unique rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unique rows</from>
       <to>Table output</to>
       <enabled>Y</enabled>
     </hop>
@@ -567,7 +576,7 @@
       <schema_name/>
     </partitioning>
     <send_true_to/>
-    <send_false_to>Table output</send_false_to>
+    <send_false_to>Unique rows</send_false_to>
     <compare>
       <condition>
         <negated>Y</negated>
@@ -839,63 +848,48 @@
     <fields>
       <field>
         <name>incident_id</name>
-        <rename/>
       </field>
       <field>
         <name>trip_id</name>
-        <rename/>
       </field>
       <field>
         <name>truck_id</name>
-        <rename/>
       </field>
       <field>
         <name>driver_id</name>
-        <rename/>
       </field>
       <field>
         <name>incident_date</name>
-        <rename/>
       </field>
       <field>
         <name>incident_type</name>
-        <rename/>
       </field>
       <field>
         <name>location_city</name>
-        <rename/>
       </field>
       <field>
         <name>location_state</name>
-        <rename/>
       </field>
       <field>
         <name>at_fault_flag</name>
-        <rename/>
       </field>
       <field>
         <name>injury_flag</name>
-        <rename/>
       </field>
       <field>
         <name>vehicle_damage_cost</name>
-        <rename/>
       </field>
       <field>
         <name>cargo_damage_cost</name>
-        <rename/>
       </field>
       <field>
         <name>claim_amount</name>
-        <rename/>
       </field>
       <field>
         <name>preventable_flag</name>
-        <rename/>
       </field>
       <field>
         <name>description</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -914,6 +908,50 @@
     </GUI>
   </step>
   <step>
+    <name>Table output</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>ETL Project</connection>
+    <schema/>
+    <table>safety_incident_stg</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>992</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>safety_incidents</name>
     <type>CsvInput</type>
     <description/>
@@ -924,7 +962,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>E:\project dataset\safety_incidents.csv</filename>
+    <filename>E:\etl-dwh-bi-project\data\raw\safety_incidents.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -1120,8 +1158,8 @@
     </GUI>
   </step>
   <step>
-    <name>Table output</name>
-    <type>TableOutput</type>
+    <name>Unique rows</name>
+    <type>Unique</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1130,24 +1168,71 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>ETL Project</connection>
-    <schema/>
-    <table>safety_incident_stg</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
     <fields>
+      <field>
+        <name>at_fault_flag</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>cargo_damage_cost</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>claim_amount</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>description</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>driver_id</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>incident_date</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>incident_id</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>incident_type</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>injury_flag</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>location_city</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>location_state</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>preventable_flag</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>trip_id</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>truck_id</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>vehicle_damage_cost</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1158,7 +1243,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>912</xloc>
+      <xloc>880</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
