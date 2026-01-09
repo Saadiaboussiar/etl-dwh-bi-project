@@ -431,20 +431,20 @@
     <created_date>2026/01/04 18:22:40.287</created_date>
     <modified_user>-</modified_user>
     <modified_date>2026/01/04 18:22:40.287</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
   <connection>
-    <name>cnx_logistics_dw</name>
+    <name>prj</name>
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
     <database>logistics_dw</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce108ec2ff8a</password>
+    <password>Encrypted 4cd1edd9ad0bd2bf8bbf3dab40df81bcdf</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -532,179 +532,6 @@
     </hop>
   </order>
   <step>
-    <name>Extraction depuis fichier CSV</name>
-    <type>CsvInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <filename>${Internal.Entry.Current.Directory}/archive (6)/maintenance_records.csv</filename>
-    <filename_field/>
-    <rownum_field/>
-    <include_filename>N</include_filename>
-    <separator>,</separator>
-    <enclosure>"</enclosure>
-    <header>Y</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
-    <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
-    <newline_possible>N</newline_possible>
-    <format>mixed</format>
-    <encoding/>
-    <fields>
-      <field>
-        <name>maintenance_id</name>
-        <type>String</type>
-        <format/>
-        <currency>€</currency>
-        <decimal>,</decimal>
-        <group> </group>
-        <length>13</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>truck_id</name>
-        <type>String</type>
-        <format/>
-        <currency>€</currency>
-        <decimal>,</decimal>
-        <group> </group>
-        <length>8</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>maintenance_date</name>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
-        <currency>€</currency>
-        <decimal>,</decimal>
-        <group> </group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>maintenance_type</name>
-        <type>String</type>
-        <format/>
-        <currency>€</currency>
-        <decimal>,</decimal>
-        <group> </group>
-        <length>12</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>odometer_reading</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>€</currency>
-        <decimal>,</decimal>
-        <group> </group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>labor_hours</name>
-        <type>BigNumber</type>
-        <format>#.##</format>
-        <currency>€</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>labor_cost</name>
-        <type>BigNumber</type>
-        <format>#.###</format>
-        <currency>€</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>parts_cost</name>
-        <type>BigNumber</type>
-        <format>#.###</format>
-        <currency>€</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>total_cost</name>
-        <type>BigNumber</type>
-        <format>#.###</format>
-        <currency>€</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>facility_location</name>
-        <type>String</type>
-        <format/>
-        <currency>€</currency>
-        <decimal>,</decimal>
-        <group> </group>
-        <length>14</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>downtime_hours</name>
-        <type>BigNumber</type>
-        <format>#.##</format>
-        <currency>€</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>service_description</name>
-        <type>String</type>
-        <format/>
-        <currency>€</currency>
-        <decimal>,</decimal>
-        <group> </group>
-        <length>22</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>160</xloc>
-      <yloc>64</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Altération structure flux</name>
     <type>SelectValues</type>
     <description/>
@@ -718,51 +545,39 @@
     <fields>
       <field>
         <name>maintenance_id</name>
-        <rename/>
       </field>
       <field>
         <name>truck_id</name>
-        <rename/>
       </field>
       <field>
         <name>maintenance_date</name>
-        <rename/>
       </field>
       <field>
         <name>maintenance_type</name>
-        <rename/>
       </field>
       <field>
         <name>odometer_reading</name>
-        <rename/>
       </field>
       <field>
         <name>labor_hours</name>
-        <rename/>
       </field>
       <field>
         <name>labor_cost</name>
-        <rename/>
       </field>
       <field>
         <name>parts_cost</name>
-        <rename/>
       </field>
       <field>
         <name>total_cost</name>
-        <rename/>
       </field>
       <field>
         <name>facility_location</name>
-        <rename/>
       </field>
       <field>
         <name>downtime_hours</name>
-        <rename/>
       </field>
       <field>
         <name>service_description</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -985,8 +800,8 @@
     </GUI>
   </step>
   <step>
-    <name>Manipulation de chaînes de caractères</name>
-    <type>StringOperations</type>
+    <name>Dédoublonnage</name>
+    <type>Unique</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -995,71 +810,14 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
     <fields>
       <field>
-        <in_stream_name>maintenance_id</in_stream_name>
-        <out_stream_name/>
-        <trim_type>aucun</trim_type>
-        <lower_upper>aucun</lower_upper>
-        <padding_type>aucun</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>N</init_cap>
-        <mask_xml>Aucun</mask_xml>
-        <digits>aucun</digits>
-        <remove_special_characters>aucun</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>truck_id</in_stream_name>
-        <out_stream_name/>
-        <trim_type>aucun</trim_type>
-        <lower_upper>aucun</lower_upper>
-        <padding_type>aucun</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>N</init_cap>
-        <mask_xml>Aucun</mask_xml>
-        <digits>aucun</digits>
-        <remove_special_characters>aucun</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>maintenance_type</in_stream_name>
-        <out_stream_name/>
-        <trim_type>les deux</trim_type>
-        <lower_upper/>
-        <padding_type>aucun</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>O</init_cap>
-        <mask_xml>Aucun</mask_xml>
-        <digits>aucun</digits>
-        <remove_special_characters>aucun</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>facility_location</in_stream_name>
-        <out_stream_name/>
-        <trim_type>les deux</trim_type>
-        <lower_upper>majuscule</lower_upper>
-        <padding_type>aucun</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>O</init_cap>
-        <mask_xml>Aucun</mask_xml>
-        <digits>aucun</digits>
-        <remove_special_characters>aucun</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>service_description</in_stream_name>
-        <out_stream_name/>
-        <trim_type>les deux</trim_type>
-        <lower_upper>aucun</lower_upper>
-        <padding_type>aucun</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>O</init_cap>
-        <mask_xml>Aucun</mask_xml>
-        <digits>aucun</digits>
-        <remove_special_characters>aucun</remove_special_characters>
+        <name>maintenance_id</name>
+        <case_insensitive>N</case_insensitive>
       </field>
     </fields>
     <attributes/>
@@ -1071,8 +829,181 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
-      <yloc>64</yloc>
+      <xloc>864</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Extraction depuis fichier CSV</name>
+    <type>CsvInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <filename>/Users/maounouissal/Documents/projet data mining/archive/maintenance_records.csv</filename>
+    <filename_field/>
+    <rownum_field/>
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <format>mixed</format>
+    <encoding/>
+    <fields>
+      <field>
+        <name>maintenance_id</name>
+        <type>String</type>
+        <format/>
+        <currency>€</currency>
+        <decimal>,</decimal>
+        <group> </group>
+        <length>13</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>truck_id</name>
+        <type>String</type>
+        <format/>
+        <currency>€</currency>
+        <decimal>,</decimal>
+        <group> </group>
+        <length>8</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>maintenance_date</name>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency>€</currency>
+        <decimal>,</decimal>
+        <group> </group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>maintenance_type</name>
+        <type>String</type>
+        <format/>
+        <currency>€</currency>
+        <decimal>,</decimal>
+        <group> </group>
+        <length>12</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>odometer_reading</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>€</currency>
+        <decimal>,</decimal>
+        <group> </group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>labor_hours</name>
+        <type>BigNumber</type>
+        <format>#.##</format>
+        <currency>€</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>labor_cost</name>
+        <type>BigNumber</type>
+        <format>#.###</format>
+        <currency>€</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>parts_cost</name>
+        <type>BigNumber</type>
+        <format>#.###</format>
+        <currency>€</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>total_cost</name>
+        <type>BigNumber</type>
+        <format>#.###</format>
+        <currency>€</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>facility_location</name>
+        <type>String</type>
+        <format/>
+        <currency>€</currency>
+        <decimal>,</decimal>
+        <group> </group>
+        <length>14</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>downtime_hours</name>
+        <type>BigNumber</type>
+        <format>#.##</format>
+        <currency>€</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>service_description</name>
+        <type>String</type>
+        <format/>
+        <currency>€</currency>
+        <decimal>,</decimal>
+        <group> </group>
+        <length>22</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>160</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1210,83 +1141,6 @@
     </GUI>
   </step>
   <step>
-    <name>Tri lignes</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>maintenance_id</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>736</xloc>
-      <yloc>64</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Dédoublonnage</name>
-    <type>Unique</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <count_rows>N</count_rows>
-    <count_field/>
-    <reject_duplicate_row>N</reject_duplicate_row>
-    <error_description/>
-    <fields>
-      <field>
-        <name>maintenance_id</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>864</xloc>
-      <yloc>240</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Insertion dans table</name>
     <type>TableOutput</type>
     <description/>
@@ -1297,8 +1151,8 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>cnx_logistics_dw</connection>
-    <schema>logistics_dw</schema>
+    <connection>prj</connection>
+    <schema/>
     <table>stg_maintenance</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -1374,6 +1228,140 @@
     </remotesteps>
     <GUI>
       <xloc>992</xloc>
+      <yloc>64</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Manipulation de chaînes de caractères</name>
+    <type>StringOperations</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>maintenance_id</in_stream_name>
+        <out_stream_name/>
+        <trim_type>aucun</trim_type>
+        <lower_upper>aucun</lower_upper>
+        <padding_type>aucun</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>N</init_cap>
+        <mask_xml>Aucun</mask_xml>
+        <digits>aucun</digits>
+        <remove_special_characters>aucun</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>truck_id</in_stream_name>
+        <out_stream_name/>
+        <trim_type>aucun</trim_type>
+        <lower_upper>aucun</lower_upper>
+        <padding_type>aucun</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>N</init_cap>
+        <mask_xml>Aucun</mask_xml>
+        <digits>aucun</digits>
+        <remove_special_characters>aucun</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>maintenance_type</in_stream_name>
+        <out_stream_name/>
+        <trim_type>les deux</trim_type>
+        <lower_upper/>
+        <padding_type>aucun</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>O</init_cap>
+        <mask_xml>Aucun</mask_xml>
+        <digits>aucun</digits>
+        <remove_special_characters>aucun</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>facility_location</in_stream_name>
+        <out_stream_name/>
+        <trim_type>les deux</trim_type>
+        <lower_upper>majuscule</lower_upper>
+        <padding_type>aucun</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>O</init_cap>
+        <mask_xml>Aucun</mask_xml>
+        <digits>aucun</digits>
+        <remove_special_characters>aucun</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>service_description</in_stream_name>
+        <out_stream_name/>
+        <trim_type>les deux</trim_type>
+        <lower_upper>aucun</lower_upper>
+        <padding_type>aucun</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>O</init_cap>
+        <mask_xml>Aucun</mask_xml>
+        <digits>aucun</digits>
+        <remove_special_characters>aucun</remove_special_characters>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>64</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Tri lignes</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>maintenance_id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>736</xloc>
       <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
